@@ -1,0 +1,20 @@
+[package]
+name = "tokio-send-fd"
+version = "0.9.0"
+edition = "2021"
+authors = ["Alexander Smoktal [https://github.com/alexander-smoktal]"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/alexander-smoktal/tokio-send-fd"
+description = """
+A wrapper for tokio::net::UnixStream to send file descriptors
+"""
+categories = ["asynchronous", "network-programming"]
+
+[dependencies]
+async-trait = "0.1.56"
+passfd = "0.1.4"
+tokio = { version = "1.19", features = ["net", "rt", "macros", "io-util"] }
+
+[dev-dependencies]
+tempdir = "0.3.7"
