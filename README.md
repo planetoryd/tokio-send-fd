@@ -9,7 +9,7 @@ A library to send tokio UnixStream and raw file descriptors over tokio UnixStrea
 [crates-badge]: https://img.shields.io/crates/v/tokio-send-fd.svg
 [crates-url]: https://crates.io/crates/tokio-send-fd
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[mit-url]: https://github.com/tokio-send-fd/tokio/blob/master/LICENSE
+[mit-url]: https://github.com/tokio-send-fd/tokio/blob/main/LICENSE
 [actions-badge]: https://github.com/alexander-smoktal/tokio-send-fd/actions/workflows/rust.yml/badge.svg
 [actions-url]: https://github.com/alexander-smoktal/tokio-send-fd/actions/workflows/rust.yml
 
