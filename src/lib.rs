@@ -1,8 +1,12 @@
 //! **tokio-send-fd** is a library for sending and receiving Unix file descriptors over tokio UnixStream connections.
-//! You can transfer [RawFd] or [UnixStream](tokio::net::UnixStream).
+//! You can either transfer [RawFd] or [UnixStream](tokio::net::UnixStream).
 //!
-//! # Examles
+//! ## Examles
 //! See [test_raw_fd.rs](./tests/test_raw_fd.rs) and [test_tokio_stream.rs](./tests/test_tokio_stream.rs) for examples.
+//!
+//! ## Async trait disclaimer
+//! The crate uses [async-trait](https://crates.io/crates/async-trait) and because of this has a lot of extra
+//! lifetime parameters on the trait. Once async traits RFC is merged, I'll remove the dependency.
 use std::{
     io::{Error, ErrorKind},
     os::unix::{
@@ -17,7 +21,7 @@ use tokio::{io::Interest, net::UnixStream};
 
 use passfd::FdPassingExt;
 
-/// SendFd trait, *use* this extend UnixStream with sending and receiving functions
+/// SendFd trait, *use* this extend [UnixStream](tokio::net::UnixStream) with sending and receiving functions
 #[async_trait]
 pub trait SendFd {
     /// Send RawFd
