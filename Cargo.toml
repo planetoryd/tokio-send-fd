@@ -6,6 +6,7 @@ authors = ["Alexander Smoktal [https://github.com/alexander-smoktal]"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/alexander-smoktal/tokio-send-fd"
+documentation = "https://docs.rs/tokio-send-fd"
 description = """
 A wrapper for tokio::net::UnixStream to send file descriptors
 """
