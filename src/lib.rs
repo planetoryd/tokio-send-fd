@@ -4,9 +4,22 @@
 //! ## Examles
 //! See [test_raw_fd.rs](./tests/test_raw_fd.rs) and [test_tokio_stream.rs](./tests/test_tokio_stream.rs) for examples.
 //!
+//! ## Creating [UnixStream](tokio::net::UnixStream) from [RawFd]
+//! If you want to create tokio [UnixStream](tokio::net::UnixStream) from a raw file descriptor created by
+//! os' [UnixStream::pair](std::os::unix::net::UnixStream::pair()) call, you should make it
+//! [set_nonblocking(true)](std::os::unix::net::UnixStream::set_nonblocking()), otherwise tokio stream will block
+//! in async functions ⚠️
+//!
+//! ## Transfering socket pair ownership
+//! Sending a socket of a socket pair doesn't close the local copy, which leads to having the socket being
+//! opened until the sender is shut down.
+//! If you want counterparties to detect peer shutdown, you have to close socket pair right after sending
+//! a socket to a peer.
+//! Use [close](https://docs.rs/nix/latest/nix/unistd/fn.close.html) Posix call.
+//!
 //! ## Async trait disclaimer
 //! The crate uses [async-trait](https://crates.io/crates/async-trait) and because of this has a lot of extra
-//! lifetime parameters on the trait. Once async traits RFC is merged, I'll remove the dependency.
+//! lifetime parameters on the trait. Once async traits RFC is merged, dependency will be removed.
 use std::{
     io::{Error, ErrorKind},
     os::unix::{
