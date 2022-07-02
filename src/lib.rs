@@ -2,7 +2,7 @@
 //! You can either transfer [RawFd] or [UnixStream](tokio::net::UnixStream).
 //!
 //! ## Examles
-//! See [test_raw_fd.rs](./tests/test_raw_fd.rs) and [test_tokio_stream.rs](./tests/test_tokio_stream.rs) for examples.
+//! See [test_raw_fd.rs](https://github.com/alexander-smoktal/tokio-send-fd/blob/main/tests/test_raw_fd.rs) and [test_tokio_stream.rs](https://github.com/alexander-smoktal/tokio-send-fd/blob/main/tests/test_tokio_stream.rs) for examples.
 //!
 //! ## Creating [UnixStream](tokio::net::UnixStream) from [RawFd]
 //! If you want to create tokio [UnixStream](tokio::net::UnixStream) from a raw file descriptor created by
