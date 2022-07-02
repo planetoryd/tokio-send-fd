@@ -20,7 +20,7 @@ You can transfer **RawFd** or **UnixStream**. See [test_raw_fd.rs](./tests/test_
 ## Creating **tokio::net::UnixStream** from **RawFd**
 If you want to create tokio [UnixStream](https://docs.rs/tokio/latest/tokio/net/struct.UnixStream.html) from a raw file descriptor created by
 os' [UnixStream::pair](https://docs.rs/tokio/latest/tokio/net/struct.UnixStream.html#method.pair) call, you should make it
-[set_nonblocking(true)](https://doc.rust-lang.org/nightly/std/os/unix/net/struct.UnixStream.html#method.set_nonblocking), otherwise tokio stream will block event
+[set_nonblocking(true)](https://doc.rust-lang.org/stable/std/os/unix/net/struct.UnixStream.html#method.set_nonblocking), otherwise tokio stream will block event
 in async functions ⚠️
 
 ## Transfering socket pair ownership
