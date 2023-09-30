@@ -12,7 +12,6 @@ A wrapper for tokio::net::UnixStream to send file descriptors
 categories = ["asynchronous", "network-programming"]
 
 [dependencies]
-async-trait = "0.1.56"
 passfd = "0.1.4"
 tokio = { version = "1.19", features = ["net", "rt", "macros", "io-util"] }
 

@@ -1,3 +1,5 @@
+Modified to use Rust nightly and async traits.
+
 # tokio-send-fd
 
 A library to send tokio UnixStream and raw file descriptors over tokio UnixStream connections.

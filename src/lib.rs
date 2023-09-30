@@ -1,3 +1,5 @@
+#![feature(async_fn_in_trait)]
+
 //! **tokio-send-fd** is a library for sending and receiving Unix file descriptors over tokio UnixStream connections.
 //! You can either transfer [RawFd] or [UnixStream](tokio::net::UnixStream).
 //!
@@ -29,13 +31,11 @@ use std::{
     },
 };
 
-use async_trait::async_trait;
 use tokio::{io::Interest, net::UnixStream};
 
 use passfd::FdPassingExt;
 
 /// SendFd trait, *use* this extend [UnixStream](tokio::net::UnixStream) with sending and receiving functions
-#[async_trait]
 pub trait SendFd {
     /// Send RawFd
     async fn send_fd(&self, fd: RawFd) -> Result<(), Error>;
@@ -47,7 +47,6 @@ pub trait SendFd {
     async fn recv_stream(&self) -> Result<UnixStream, Error>;
 }
 
-#[async_trait]
 impl SendFd for UnixStream {
     async fn send_fd(&self, fd: RawFd) -> Result<(), Error> {
         loop {
